@@ -34,16 +34,15 @@ public class CalcTest {
         clickResult.click();
         //click result button
 
-        WebElement Result = driver.findElement(By.xpath("//html/body/div[6]/div[1]/table/tbody/tr/td/div/div/div[5]/table/tbody/tr[2]/td"));
-        /*
-        //text()[contains('2928 ккал/день')]
-        //html/body/div[6]/div[1]/table/tbody/tr/td/div/div/div[5]/table/tbody/tr[2]/td
-        //td[text()='2928 ккал/день']
-        some troubles with xpath
-        */
+        WebElement Result = driver.findElement(By.xpath("//td[contains(text(), '2928 ккал/день')]"));
+        //find answer
         String Result1 = Result.getText();
+        //get text from answer
         System.out.println(Result1);
+        //print answer
         Assert.assertEquals(Result1, "2928 ккал/день");
+        //is answer true
         driver.quit();
+        //quit
     }
 }
