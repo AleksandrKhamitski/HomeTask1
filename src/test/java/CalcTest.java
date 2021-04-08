@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import java.util.concurrent.TimeUnit;
 
 public class CalcTest {
@@ -23,26 +22,26 @@ public class CalcTest {
     }
 
     @Test
-    public void howMuchYouNeedToSaveYourWeightResultTest() {
-        WebElement age = driver.findElement(By.id("age"));
-        age.sendKeys("26");
+    public void howMuchYouNeedToSaveYourWeight() {
+        WebElement writeAge = driver.findElement(By.id("age"));
+        writeAge.sendKeys("26");
         //write age
-        WebElement weight = driver.findElement(By.id("weight"));
-        weight.sendKeys("88");
+        WebElement writeWeight = driver.findElement(By.id("weight"));
+        writeWeight.sendKeys("88");
         //write weight
-        WebElement height = driver.findElement(By.id("sm"));
-        height.sendKeys("183");
+        WebElement writeHeight = driver.findElement(By.id("sm"));
+        writeHeight.sendKeys("183");
         //write height
         WebElement clickResult = driver.findElement(By.id("submit"));
         clickResult.click();
         //click result button
-        WebElement Result = driver.findElement(By.xpath("//td[contains(text(), '2928 ккал/день')]"));
+        WebElement resultOfCalculation = driver.findElement(By.xpath("//td[contains(text(), '2928 ккал/день')]"));
         //find answer
-        String Result1 = Result.getText();
+        String howMuchYouNeed = resultOfCalculation.getText();
         //get text from answer
-        System.out.println(Result1);
+        System.out.println(howMuchYouNeed);
         //print answer
-        Assert.assertEquals(Result1, "2928 ккал/день");
+        Assert.assertEquals(howMuchYouNeed, "2928 ккал/день");
         //is answer true
     }
 
