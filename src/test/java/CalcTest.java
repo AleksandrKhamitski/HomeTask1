@@ -14,7 +14,7 @@ public class CalcTest {
 
     @BeforeTest
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\mts\\IdeaProjects\\MyFirstProject\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/java/drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.calc.ru/kalkulyator-kalorii.html");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -23,14 +23,14 @@ public class CalcTest {
 
     @Test
     public void howMuchYouNeedToSaveYourWeight() {
-        WebElement writeAge = driver.findElement(By.id("age"));
-        writeAge.sendKeys("26");
+        WebElement ageField = driver.findElement(By.id("age"));
+        ageField.sendKeys("26");
         //write age
-        WebElement writeWeight = driver.findElement(By.id("weight"));
-        writeWeight.sendKeys("88");
+        WebElement weightField = driver.findElement(By.id("weight"));
+        weightField.sendKeys("88");
         //write weight
-        WebElement writeHeight = driver.findElement(By.id("sm"));
-        writeHeight.sendKeys("183");
+        WebElement heightField = driver.findElement(By.id("sm"));
+        heightField.sendKeys("183");
         //write height
         WebElement clickResult = driver.findElement(By.id("submit"));
         clickResult.click();
@@ -41,7 +41,9 @@ public class CalcTest {
         //get text from answer
         System.out.println(howMuchYouNeed);
         //print answer
-        Assert.assertEquals(howMuchYouNeed, "2928 ккал/день");
+        String expectedResult = "2928 ккал/день";
+        //expected result
+        Assert.assertEquals(howMuchYouNeed, expectedResult );
         //is answer true
     }
 
